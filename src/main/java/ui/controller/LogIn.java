@@ -15,8 +15,7 @@ public class LogIn extends RequestHandler {
 
         if (user == null) {
             request.setAttribute("error", "No valid userid/password");
-        }
-        else {
+        } else {
             request.getSession().setAttribute("user", user);
         }
         return "index.jsp";

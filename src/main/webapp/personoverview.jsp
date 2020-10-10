@@ -10,7 +10,7 @@
 <body>
 <div id="container">
     <header>
-        <h1><span>XXX</span></h1>
+        <h1><span>Cafe Campus Telenet</span></h1>
         <nav>
             <ul>
                 <li><a href="Controller">Home</a></li>

@@ -9,9 +9,9 @@ public abstract class RequestHandler {
 
     protected ContactTracingService service;
 
-    public abstract String handleRequest (HttpServletRequest request, HttpServletResponse response);
+    public abstract String handleRequest(HttpServletRequest request, HttpServletResponse response);
 
-    public void setModel (ContactTracingService contactTracingService) {
+    public void setModel(ContactTracingService contactTracingService) {
         this.service = contactTracingService;
     }
 

@@ -13,7 +13,7 @@
 <div id="container">
     <header>
         <h1>
-            <span>XXX</span>
+            <span>Cafe Campus Telenet</span>
         </h1>
         <nav>
             <ul>
@@ -25,40 +25,41 @@
         <h2>Home</h2>
 
     </header>
-    <main> Sed ut perspiciatis unde omnis iste natus error sit
-        voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque
-        ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae
-        dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit
-        aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos
-        qui ratione voluptatem sequi nesciunt.
+    <main><p>Welkom bij Café Campus Telenet! Corona gooit in het dagelijkse leven telkens roet in het eten, maar
+        gelukkig zijn wij een café en serveren wij geen eten. Bijgevolg zal alles even goed blijven smaken, echter
+        kunnen wij deze pandemie niet negeren, waardoor ook wij genoodzaakt zijn enkele maatregelen te treffen. Eén
+        hiervan ziet u op deze website; u dient zich te registreren bij elk bezoek. Op deze manier kunnen wij bijhouden
+        wie er wanneer in het café geweest is en bijgevolg als er iemand van onze klanten positief test ook meteen de
+        juiste mensen verwittigen om zich te laten testen!</p>
+        <p>Samen krijgen we Corona klein!</p>
+
+        <c:if test="${error != null}">
+            <div class="alert-danger">
+                <p>${error}</p>
+            </div>
+        </c:if>
+        <c:choose>
+            <c:when test="${sessionScope.get('user') == null}">
+                <form novalidate="novalidate" method="post" action="Controller?command=LogIn">
+                    <!-- novalidate in order to be able to run tests correctly -->
+                    <p><label for="userid">User id</label>
+                        <input type="text" id="userid" name="userid"
+                               required></p>
+                    <p><label for="password">Password</label>
+                        <input type="password" id="password" name="password"
+                               required></p>
+                    <p><input type="submit" id="logIn" value="Log In"></p>
+
+                </form>
+            </c:when>
+            <c:otherwise>
+                <p> Welcome, ${sessionScope.get('user').firstName}</p>
+                <form novalidate="novalidate" method="post" action="Controller?command=LogOut">
+                    <p><input type="submit" id="logOut" value="Log Out"></p>
+                </form>
+            </c:otherwise>
+        </c:choose>
     </main>
-    <c:if test="${error != null}">
-        <div class="alert-danger">
-            <p>${error}</p>
-        </div>
-    </c:if>
-    <c:choose>
-        <c:when test="${sessionScope.get('user') == null}">
-            <form novalidate="novalidate" method="post" action="Controller?command=LogIn">
-                <!-- novalidate in order to be able to run tests correctly -->
-                <p><label for="userid">User id</label>
-                    <input type="text" id="userid" name="userid"
-                           required></p>
-                <p><label for="password">Password</label>
-                    <input type="password" id="password" name="password"
-                           required></p>
-                <p><input type="submit" id="logIn" value="Log In"></p>
-
-            </form>
-        </c:when>
-        <c:otherwise>
-            <p> Welcome, ${sessionScope.get('user').firstName}</p>
-            <form novalidate="novalidate" method="post" action="Controller?command=LogOut">
-                <p><input type="submit" id="logOut" value="Log Out"></p>
-            </form>
-        </c:otherwise>
-    </c:choose>
-
     <footer> &copy; Webontwikkeling 3, UC Leuven-Limburg</footer>
 </div>
 </body>

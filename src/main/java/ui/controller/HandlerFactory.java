@@ -7,7 +7,7 @@ public class HandlerFactory {
     public RequestHandler getHandler(String handlerName, ContactTracingService model) {
         RequestHandler handler = null;
         try {
-            Class handlerClass = Class.forName("ui.controller."+ handlerName);
+            Class handlerClass = Class.forName("ui.controller." + handlerName);
             // Java 8/9
             //Object handlerObject = handlerClass.newInstance();
             // Java 10
